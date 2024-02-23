@@ -5,6 +5,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 import Header from './components/Header/header.jsx';
+import Carouselpage from './components/carousel/carousel';
 // import Search from 'components/Search';
 // import Details from 'components/DetailsView/Details';
 // import GridContainer from 'components/GridView/GridContainer';
@@ -22,6 +23,7 @@ function App(props) {
   return (
     <div className="App">
       <Header />
+      <Carouselpage />
     </div>
   );
 }
