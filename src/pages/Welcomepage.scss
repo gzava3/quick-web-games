@@ -1,0 +1,106 @@
+.glow {
+    color: rgb(237, 237, 151);
+    text-shadow: 
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 31px #fff,
+        0 0 55px rgb(255, 226, 4),
+        0 0 91px rgb(255, 226, 4),
+        0 0 100px rgb(255, 226, 4),
+        0 0 121px rgb(255, 226, 4),
+        0 0 140px rgb(255, 226, 4);
+}
+
+
+.welcomePage {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Papyrus';
+  background-color: #070101;
+  place-items: center;
+  min-height: 100vh;
+	display: grid;
+
+}
+
+:root {
+	--clr-neon: rgb(63, 94, 247);
+	--clr-bg: rgba(1, 1, 1, 1);
+	--clr-white: rgba(255, 255, 255, 1);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+
+.button {
+	font-size: 1em;
+
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	color: var(--clr-neon);
+	border: var(--clr-neon) 4px solid;
+	padding: 0.25em 1em;
+	border-radius: 0.25em;
+
+	text-shadow: 0 0 0.125em rgba(255, 255, 255, 0.55), 0 0 0.5em currentColor;
+
+	box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+
+	position: relative;
+	
+}
+
+.button::before {
+	pointer-events: none;
+	content: "";
+	position: absolute;
+	background: var(--clr-neon);
+	top: 120%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	transform: perspective(1.2em) rotateX(40deg) scale(1.5, 0.5);
+	filter: blur(1.15em);
+	opacity: 0.7;
+
+	transition: transform 0.5s linear;
+}
+
+.button::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	box-shadow: 0 0 4em 0.6em var(--clr-neon), 0 0 1em 0.2em var(--clr-white);
+	opacity: 0;
+	background: var(--clr-neon);
+	z-index: -1;
+	transition: opacity 0.5s linear;
+}
+
+.button:hover,
+.button:focus {
+	color: var(--clr-bg);
+	text-shadow: none;
+}
+
+.button:hover::before,
+.button:focus::before {
+	opacity: 1;
+	transform: perspective(1em) rotateX(40deg) scale(1.5, 0.6);
+	transition: transform 0.5s linear;
+}
+
+.button:hover::after,
+.button:focus::after {
+	opacity: 1;
+}
+
