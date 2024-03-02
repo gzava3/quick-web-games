@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom";
 
+import Routing from './Routing';
 import axios from 'axios';
 import Header from './components/Header/header.jsx';
 import Carouselpage from './components/carousel/carousel';
@@ -22,8 +23,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <Header />
-      <Carouselpage />
+      <Routing />
     </div>
   );
 }
