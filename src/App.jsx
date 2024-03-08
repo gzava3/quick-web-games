@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom";
+import { auth, database } from './firebase/firebase-config';
+import { onAuthStateChanged } from "firebase/auth";
 
 import Routing from './Routing';
 import axios from 'axios';
