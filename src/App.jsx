@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { auth, database } from './firebase/firebase-config';
+import { auth, database } from './firebase/firebase-config.jsx';
 import { onAuthStateChanged } from "firebase/auth";
 
 import Routing from './Routing';
