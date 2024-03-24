@@ -7,7 +7,6 @@ export default function Gamepage() {
     return (
         <div className="Game">
             <Header/>
-            <Search/>
             <HangMan/>
         </div>
     );
