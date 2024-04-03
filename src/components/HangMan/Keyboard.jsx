@@ -1,7 +1,20 @@
+import PropTypes from "prop-types";
 import styles from "./keyboard-styles.scss"
 const KEYS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-const Keyboard = () => {
+const Keyboard = ({ disabled, activeLetters, inactiveLetters, addGuessedLetter }) => {
+
+    Keyboard.propTypes = {
+        disabled: PropTypes.bool,
+        activeLetters: PropTypes.arrayOf(PropTypes.string).isRequired,
+        inactiveLetters: PropTypes.arrayOf(PropTypes.string).isRequired,
+        addGuessedLetter: PropTypes.func.isRequired
+    }
+
+    Keyboard.defaultProps = {
+        disabled: false
+    }
+
     return (
         <div
             style = {{
@@ -12,8 +25,22 @@ const Keyboard = () => {
         
         >
             {KEYS.map(key => {
+                const isActive = activeLetters.includes(key)
+                const isInactive = inactiveLetters.includes(key)
                 return (
-                <button clasName = {`${styles.btn}`} key={key}>
+                <button 
+                    /*When letter on game keyboard is clicked, add that to guessedLetters*/
+                    onClick={() => addGuessedLetter(key)} 
+
+                    //  Apply different styles dynamically based on the key's status.
+                    className = {`${styles.btn} ${isActive ? styles.active : ""} ${isInactive ? styles.inactive : ""}`}
+                    
+                    // Disables the button if it is either active or inactive to prevent the same letter from being guessed again.
+                    disabled = {isInactive || isActive || disabled}
+
+                    key={key}
+                    >
+
                     {key}
                 </button>
                 )

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const HEAD = (
     <div style ={{
         width: "50px",
@@ -77,17 +79,20 @@ const LEFT_LEG = (
     }} />
 )
 
+const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG]
 
-const HangmanDrawing = () => {
+const HangmanDrawing = ({ numberOfGuesses } ) => {
+    HangmanDrawing.propTypes = {
+        numberOfGuesses: PropTypes.number.isRequired
+
+    }
+    
     return (
         // Container
         <div style= {{ position: "relative "}}>
-            {HEAD}
-            {BODY}
-            {RIGHT_ARM}
-            {LEFT_ARM}
-            {RIGHT_LEG}
-            {LEFT_LEG}
+            {/*Allows us to determine how many body parts are shown based on the number of guesses that are wrong*/}
+            {BODY_PARTS.slice(0, numberOfGuesses)}
+
             <div 
                 style = {{ 
                     height: "50px", 

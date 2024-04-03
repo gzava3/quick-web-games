@@ -1,6 +1,17 @@
-const HangmanWord = () => {
-    const word = "test"
-    const guessedLetters = ["t", "e", "g"]
+import PropTypes from "prop-types";
+
+const HangmanWord = ({ reveal, guessedLetters, wordToGuess }) => {
+    HangmanWord.propTypes = {
+        reveal: PropTypes.bool,
+        guessedLetters: PropTypes.arrayOf(PropTypes.string).isRequired,
+        wordToGuess: PropTypes.string.isRequired
+
+    }
+
+    HangmanWord.defaultProps = {
+        reveal: false
+    }
+
     return (
     <div style = {{ 
         display: "flex", 
@@ -11,13 +22,19 @@ const HangmanWord = () => {
         fontFamily: "monospace",
     }}
     >
-        {word.split("").map((letter, index) => (
+        {/*Dynamically gets the word to guess*/}
+        {wordToGuess.split("").map((letter, index) => (
             <span style = {{ borderBottom: ".lem solid black"}} key = {index}>
                 <span
                 style = {{
-                    visibility: guessedLetters.includes(letter)
+                    visibility: guessedLetters.includes(letter) || reveal
                     ? "visibile"
-                    : "hidden"
+                    : "hidden",
+
+                    // If we are revealing the word, and we did not guess this letter correctly, make the letter red
+                    color: !guessedLetters.includes(letter) && reveal 
+                    ? "red" 
+                    : "black"
                 }}
                 >
                     {letter}
