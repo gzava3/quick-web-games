@@ -10,6 +10,7 @@ export default function Homepage() {
             <Header />
             <Search/>
             <Carouselpage />
+	    <a href='/UltimateTicTacToe'>Ultimate Tic-Tac-Toe</a>
             <CookieConsentpage />
       </div>
     );
