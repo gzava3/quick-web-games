@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "./keyboard-styles.scss"
+import styles from "./keyboard-styles.module.scss"
 const KEYS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 const Keyboard = ({ disabled, activeLetters, inactiveLetters, addGuessedLetter }) => {

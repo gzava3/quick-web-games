@@ -47,10 +47,11 @@ const HangMan = () => {
     // Event listener for physical keyboard
     useEffect(() => {
         const handler = (e) => {
-            if (typeof e !== KeyboardEvent) {
+            if (!(e instanceof KeyboardEvent)) {
                 console.error('event must be KeyboardEvent');
                 return;
-              }
+            }
+            
 
             const key = e.key;
     
@@ -63,13 +64,13 @@ const HangMan = () => {
         };
     
         // Add the event listener when the component mounts
-        document.addEventListener('keypress', handler);
+        document.addEventListener('keydown', handler);
     
         // Remove the event listener when the component unmounts
         return () => {
-            document.removeEventListener('keypress', handler);
+            document.removeEventListener('keydown', handler);
         };
-    }, []);
+    }, [addGuessedLetter]);
 
 
     
@@ -77,14 +78,14 @@ const HangMan = () => {
     // Enter-key refresh event listener
     useEffect(() => {
         const handler = (e) => {
-            if (typeof e !== KeyboardEvent) {
+            if (!(e instanceof KeyboardEvent)) {
                 console.error('event must be KeyboardEvent');
                 return;
-              }
+            }
 
             const key = e.key;
     
-            if (key != "Enter") return
+            if (key !== "Enter") return
             
             e.preventDefault()
             setGuessedLetters([])
@@ -92,11 +93,11 @@ const HangMan = () => {
         };
     
         // Add the event listener when the component mounts
-        document.addEventListener('keypress', handler);
+        document.addEventListener('keydown', handler);
     
         // Remove the event listener when the component unmounts
         return () => {
-            document.removeEventListener('keypress', handler);
+            document.removeEventListener('keydown', handler);
         };
     }, []);
 
@@ -113,8 +114,8 @@ const HangMan = () => {
             }}
          >
             <div style={{ fontSize: "2rem", textAlign: "center" }}>
-                {isWinner && "Winner! - Refresh to try again"}
-                {isLoser && "You Lose! - Refresh to try again"}
+                {isWinner && "Winner! - Hit Enter or refresh page to try again"}
+                {isLoser && "You Lose! - Hit Enter or refresh page to try again"}
             </div>
             <HangmanDrawing 
                 numberOfGuesses = {incorrectLetters.length}

@@ -1,9 +1,9 @@
 import '../App.css';
 import Header from "../components/Header/header";
 import Search from '../components/Search/SearchContainer';
-import HangMan from '../components/HangMan/HangMan';
+import HangMan from '../components/HangMan/hangMan';
 
-export default function Gamepage() {
+export default function HangManPage() {
     return (
         <div className="Game">
             <Header/>
