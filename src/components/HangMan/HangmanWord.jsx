@@ -24,11 +24,11 @@ const HangmanWord = ({ reveal, guessedLetters, wordToGuess }) => {
     >
         {/*Dynamically gets the word to guess*/}
         {wordToGuess.split("").map((letter, index) => (
-            <span style = {{ borderBottom: ".lem solid black"}} key = {index}>
+            <span style = {{ borderBottom: ".1em solid black"}} key = {index}>
                 <span
                 style = {{
                     visibility: guessedLetters.includes(letter) || reveal
-                    ? "visibile"
+                    ? "visible"
                     : "hidden",
 
                     // If we are revealing the word, and we did not guess this letter correctly, make the letter red
