@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "../components/Header/header";
 import "./UltimateTicTacToe.css";
 
 export default function UltimateTicTacToe() {
@@ -211,6 +212,8 @@ export default function UltimateTicTacToe() {
   };
 
   return (
+    <div className="App">
+      <Header/>
     <div className="container">
       <h1>Ultimate Tic Tac Toe</h1>
       <h3>Walk in the 
@@ -364,6 +367,7 @@ export default function UltimateTicTacToe() {
       <button className="reset-button" onClick={handleReset}>
         Reset
       </button>
+    </div>
     </div>
   );
 }
