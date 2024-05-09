@@ -6,12 +6,10 @@ import CookieConsentpage from '../components/CookieConsent/cookieConsent';
 
 export default function Homepage() {
     return (
-        <div className="App">
-            <Header />
-            <Search/>
-            <Carouselpage />
-	    <a href='/UltimateTicTacToe'>Ultimate Tic-Tac-Toe</a>
-            <CookieConsentpage />
+      <div className="App">
+        <Header />
+        <Carouselpage />
+        <CookieConsentpage />
       </div>
     );
   };
